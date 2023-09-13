@@ -16,6 +16,9 @@ class InscriptionController extends Controller
         $nom = $request->input('nom');
         $postnom = $request->input('postnom');
         $prenom = $request->input('prenom');
+        $utilisateur = $request->input('utilisateur');
+        $motdepasse = $request->input('motdepasse');
+        $conf_motdepasse = $request->input('conf_motdepasse');
         $profession = $request->input('profession');
 
         if ($profession === 'etudiant') {
@@ -27,6 +30,7 @@ class InscriptionController extends Controller
             return redirect()->route('accueil-simple');
         } elseif ($profession === 'section') {
             $matricule = $request->input('matricule');
+            $nom_section = $request->input('nom_section');
 
             // Traitement de l'inscription pour les sections
             // Redirection vers la page d'administration des sections
