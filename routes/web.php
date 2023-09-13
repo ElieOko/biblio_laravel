@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\InscriptionController;
+use App\Http\Controllers\ProfController;
+use App\Http\Controllers\EtudiantController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,8 +16,9 @@ use App\Http\Controllers\InscriptionController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
-Route::get('/inscription', [InscriptionController::class, 'showForm'])->name('inscription');
-Route::post('/inscription', [InscriptionController::class, 'register']);
+Route::resource('prof', ProfController::class);
+Route::resource('etudiants', EtudiantController::class);
+
