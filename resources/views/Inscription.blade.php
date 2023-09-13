@@ -8,7 +8,7 @@
 </head>
 <body>
     <!-- resources/views/inscription.blade.php -->
-<form action="{{ route('inscription') }}" method="POST">
+<form action="{{ route('inscription.store') }}" method="POST">
     @csrf
 
     <div>
@@ -34,7 +34,6 @@
             <option value="bibliotheque">Bibliothèque</option>
         </select>
     </div>
-
     <div id="etudiant-fields" style="display: none;">
         <label for="promotion">Promotion</label>
         <input type="text" name="promotion" id="promotion">
@@ -42,12 +41,10 @@
         <label for="section">Section</label>
         <input type="text" name="section" id="section">
     </div>
-
     <div id="section-bibliotheque-fields" style="display: none;">
         <label for="matricule">Matricule</label>
         <input type="text" name="matricule" id="matricule">
     </div>
-
     <button type="submit">Inscription</button>
 </form>
 

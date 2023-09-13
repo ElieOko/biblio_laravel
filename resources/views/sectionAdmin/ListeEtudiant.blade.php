@@ -123,6 +123,7 @@
                             <tbody class="text-gray-700">
                                 @forelse ($etudiants as $item)
                                     <tr>
+
                                         <td class="w-1/3 text-left py-3 px-4">{{ $item->nom }}</td>
                                         <td class="w-1/3 text-left py-3 px-4">{{ $item->postnom }}</td>
                                         <td class="text-left py-3 px-4">{{ $item->prenom }}</td>

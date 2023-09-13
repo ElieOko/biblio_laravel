@@ -37,13 +37,13 @@
         <!-- Navigation -->
         <nav class="navbar fixed-top">
             <div class="container sm:px-4 lg:px-8 flex flex-wrap items-center justify-between lg:flex-nowrap">
-                
+
                 <!-- Text Logo - Use this if you don't have a graphic logo -->
                 <!-- <a class="text-gray-800 font-semibold text-3xl leading-4 no-underline page-scroll" href="index.html">Pavo</a> -->
 
                 <!-- Image Logo -->
                 <a class="inline-flex mr-4 py-0.5 text-xl whitespace-nowrap hover:no-underline focus:no-underline " href="index.html">
-                    <img src="images/isc-r.png" alt="alternative" class="h-8" /><span class="flex ml-1">ISC-GOMA Book</span> 
+                    <img src="images/isc-r.png" alt="alternative" class="h-8" /><span class="flex ml-1">ISC-GOMA Book</span>
                 </a>
 
                 <button class="background-transparent rounded text-xl leading-none hover:no-underline focus:no-underline lg:hidden lg:text-gray-400" type="button" data-toggle="offcanvas">
@@ -68,28 +68,28 @@
                                     <a class="dropdown-item page-scroll" href="privacy.html">Marketing</a>
                                 </div>
                             </li>
-                     
+
                     </ul>
-                   
+
                 </div>
-            </div> 
-        </nav> 
+            </div>
+        </nav>
         <header id="header" class="header py-28 text-center md:pt-36 lg:text-left xl:pt-44 xl:pb-32">
             <div class="container px-4 sm:px-8 lg:grid lg:grid-cols-2 lg:gap-x-8">
                 <div class="mb-16 lg:mt-32 xl:mt-40 xl:mr-12">
                     <h3 class="text-4xl mb-5 ">Bienvenue à L'Isc-Goma</h3>
                     <p class="p-large mb-8">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis odio amet dolore saepe quis voluptatibus </p>
-                    
+
                 </div>
                 <div class="xl:text-right">
                     <img class="inline" src="images/livre-bibliotheque-manuel-ouvert.jpg" alt="alternative" />
                 </div>
             </div>
-        </header> 
-       
+        </header>
 
 
-       
+
+
         <div id="header" class=" py-28 text-center md:pt-36 lg:text-left xl:pt-44 xl:pb-32">
             <div class="container px-4 sm:px-8 lg:grid lg:grid-cols-2 lg:gap-x-8">
                 <div class="xl:text-left">
@@ -100,10 +100,10 @@
                     <p class="mb-4">Nous sommes un institution d'enseignement Superieur et Université crée sous l'arrété  l'arrêté ministériel N°ESURS/CAB.MIN/059/92 du 10 mars 1992.</p>
                     <p class="mb-4">on se trouve à l'extrême Nord du Lac Kivu, en Province du Nord Kivu, en République Démocratique du Congo. La ville de Goma se trouve dans une Zone montagneuse, elle jouit d'un climat doux grâce à sa position entre le Lac Kivu et les hautes montagnes volcaniques.</p>
                 </div>
-               
-               
+
+
             </div>
-        </div> 
+        </div>
         <div class="pt-16 pb-12">
             <div class="container px-4 sm:px-8 lg:grid lg:grid-cols-12 lg:gap-x-12">
                 <div class="lg:col-span-5">
@@ -121,7 +121,7 @@
             </div> <!-- end of container -->
         </div>
 
-            </div> 
+            </div>
             <div class="container">
                     	<!--Posts Container-->
 				<div class="flex flex-wrap justify-between pt-12 -mx-6">
@@ -134,7 +134,7 @@
 								<p class="w-full text-gray-600 text-xs md:text-sm px-6">Angelique Bagalwa</p>
 								<div class="w-full font-bold text-xl text-gray-900 px-6">Titre livre</div>
 								<p class="text-gray-800 font-serif text-base px-6 mb-5">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo posuere et sit amet ligula. 
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo posuere et sit amet ligula.
 								</p>
                                 <a
                                 type="button"
@@ -144,10 +144,10 @@
                                 </a>
 							</div>
 						</div>
-						
+
 					</div>
-				
-					
+
+
 					<!--1/3 col -->
                     <div class=" w-full md:w-1/3 p-10 flex flex-col flex-grow flex-shrink">
 						<div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg">
@@ -156,7 +156,7 @@
 								<p class="w-full text-gray-600 text-xs md:text-sm px-6">Angelique Bagalwa</p>
 								<div class="w-full font-bold text-xl text-gray-900 px-6">Titre livre</div>
 								<p class="text-gray-800 font-serif text-base px-6 mb-5">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo posuere et sit amet ligula. 
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo posuere et sit amet ligula.
 								</p>
                                 <a
                                 type="button"
@@ -166,11 +166,11 @@
                                 </a>
 							</div>
 						</div>
-						
+
 					</div>
 
 					<!--1/3 col -->
-				
+
                     <div class=" w-full md:w-1/3 p-10 flex flex-col flex-grow flex-shrink">
 						<div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg">
 							<div href="#" class="flex flex-wrap no-underline hover:no-underline pt-4">
@@ -178,9 +178,9 @@
 								<p class="w-full text-gray-600 text-xs md:text-sm px-6">Angelique Bagalwa</p>
 								<div class="w-full font-bold text-xl text-gray-900 px-6">Titre livre</div>
 								<p class="text-gray-800 font-serif text-base px-6 mb-5">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo posuere et sit amet ligula. 
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo posuere et sit amet ligula.
 								</p>
-                               
+
 							</div>
                              <a
                                 type="button"
@@ -189,7 +189,7 @@
                                 Ouvrir le livre
                                 </a>
 						</div>
-						
+
 					</div>
 
 
@@ -257,34 +257,34 @@
                       <td class="whitespace-nowrap px-6 py-4">Otto</td>
                       <td class="whitespace-nowrap px-6 py-4">@mdo</td>
                       <td class="whitespace-nowrap px-6 py-4">Otto</td>
-                     
+
                     </tr>
                     </tbody>
-                   
+
                   </table>
-                 
+
                 </div>
-                
+
               </div>
               <button class=" hover:bg-blue-500 text-blue-700 mt-3 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
                 En savoir plus
               </button>
             </div>
-          
+
           </div>
 
-      
 
 
-      
-      
+
+
+
         <!-- Footer -->
         <div class="footer">
             <div class="container px-4 sm:px-8">
                 <h4 class="mb-8 lg:max-w-3xl lg:mx-auto">Merci de partager cet experience avec nous </h4>
                 <!-- end of social-container -->
-            </div> 
-        </div> 
+            </div>
+        </div>
 
         <div class="copyright">
             <div class="container px-4 sm:px-8 lg:grid lg:grid-cols-3">
@@ -296,9 +296,9 @@
                 <p class="pb-2 p-small statement">Copyright © <a href="#your-link" class="no-underline">Angelique Bagalwa</a></p>
 
                 <p class="pb-2 p-small statement">Distribué par :<a href="https://nsiku.net/" class="no-underline">KongoCode</a></p>
-            </div> 
+            </div>
 
-       
+
         </div> <!-- end of copyright -->
         <!-- end of copyright -->
 
