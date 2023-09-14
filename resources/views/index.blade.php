@@ -59,14 +59,13 @@
                             <a class="nav-link page-scroll" href="Livre.html">Livre</a>
                         </li>
                             <li class="dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Valve Sujet</a>
-                                <div class="dropdown-menu" aria-labelledby="dropdown01">
-                                    <a class="dropdown-item page-scroll" href="Sujet.html">Informatique</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item page-scroll" href="terms.html">Comptabilité</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item page-scroll" href="privacy.html">Marketing</a>
-                                </div>
+                                <form action="" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="EtudiantFId">
+                                    <button class="shadow bg-blue-500 hover:bg-blue-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">
+                                       Demande publication
+                                    </button>
+                                </form>
                             </li>
 
                     </ul>
