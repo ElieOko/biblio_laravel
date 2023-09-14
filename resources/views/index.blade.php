@@ -59,9 +59,10 @@
                             <a class="nav-link page-scroll" href="Livre.html">Livre</a>
                         </li>
                             <li class="dropdown">
+                                {{-- {{ route('demande.demandePublication') }} --}}
                                 <form action="" method="POST">
                                     @csrf
-                                    <input type="hidden" name="EtudiantFId">
+                                    <input type="hidden" name="EtudiantFId" value="1">
                                     <button class="shadow bg-blue-500 hover:bg-blue-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">
                                        Demande publication
                                     </button>

@@ -2,8 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfController;
+use App\Http\Controllers\DemandeController;
 use App\Http\Controllers\InscripController;
 use App\Http\Controllers\EtudiantController;
+use App\Http\Controllers\UtilisateurController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +22,8 @@ Route::get('/', function () {
     return view('index');
 });
 Route::resource('inscription', InscripController::class);
+Route::resource('utilisateur', UtilisateurController::class);
+Route::resource('demande', DemandeController::class);
 Route::resource('prof', ProfController::class);
 Route::resource('etudiants', EtudiantController::class);
 

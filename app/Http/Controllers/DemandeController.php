@@ -13,7 +13,7 @@ class DemandeController extends Controller
     {
         # code...
         $year = date("Y");
-        $student = $request->EtudiantFId;
+        $student = int($request->EtudiantFId) ;
         if($student){
               $verify = Demande::where("EtudiantFId",$student)->get();
            if(count($verify) != 0){
