@@ -19,8 +19,7 @@ use App\Http\Controllers\EtudiantController;
 Route::get('/', function () {
     return view('index');
 });
-
-Route::resource('inscrip', InscripController::class);
+Route::resource('inscription', InscripController::class);
 Route::resource('prof', ProfController::class);
 Route::resource('etudiants', EtudiantController::class);
 
