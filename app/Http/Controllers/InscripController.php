@@ -8,9 +8,8 @@ use Illuminate\Http\Request;
 class InscripController extends Controller
 {
     public function index()
-    {
-        $etudiants=Inscrip::all();
-        return view('index',compact('etudiants'));
+    { 
+        return view('Inscription');
 
     }
 

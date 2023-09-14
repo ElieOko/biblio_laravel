@@ -10,7 +10,7 @@
 </head>
 <body>
     <!-- resources/views/inscription.blade.php -->
-<form action="{{ route('inscription') }}" method="POST">
+<form action="{{ route('inscription.store') }}" method="POST">
     @csrf
 
     <div class="relative z-0 w-full mb-6 group">
