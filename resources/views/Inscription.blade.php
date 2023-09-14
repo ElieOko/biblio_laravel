@@ -8,8 +8,111 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
 </head>
-<body>
+<body class="bg-blue-700">
     <!-- resources/views/inscription.blade.php -->
+    <form action="{{ route('inscription.store') }}" method="POST">
+        @csrf
+
+        <div class="space-y-10 mx-6">
+          <div class="border-b border-gray-900/10 pb-12">
+            <h2 class="text-base font-semibold leading-7 text-xl uppercase text-white">Inscription</h2>
+
+            <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+              <div class="sm:col-span-4">
+                <label for="username" class="block text-xl font-medium leading-6 text-white ">Nom de l'utilisateur</label>
+                <div class="mt-2">
+                  <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                    <input type="text" name="username" id="username" autocomplete="username" class="block flex-1 rounded-md border-0 bg-white py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" >
+                  </div>
+                </div>
+              </div>
+              <div class="sm:col-span-3">
+                <label for="pass" class="block text-xl font-medium leading-6 text-white">mot de passe</label>
+                <div class="mt-2">
+                  <input type="text" name="pass" id="pass" autocomplete="pass" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                </div>
+              </div>
+      
+              <div class="sm:col-span-3">
+                <label for="conf_pass" class="block text-xl font-medium leading-6 text-white">confirmation mot de passe</label>
+                <div class="mt-2">
+                  <input type="text" name="conf_pass" id="conf_pass" autocomplete="pass" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                </div>
+              </div>
+            </div>
+            
+          </div>
+          
+          <div class="border-b border-gray-900/10 pb-12">
+            <h2 class="text-base font-semibold leading-7 text-xl uppercase text-white"> Information Personnelle</h2>
+
+            <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                
+              <div class="sm:col-span-2 sm:col-start-1">
+                <label for="nom" class="block text-lg font-medium leading-6 text-white">Nom</label>
+                <div class="mt-2">
+                  <input type="text" name="nom" id="nom" autocomplete="name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                </div>
+              </div>
+      
+              <div class="sm:col-span-2">
+                <label for="postnom" class="block text-lg font-medium leading-6 text-white">PostNom</label>
+                <div class="mt-2">
+                  <input type="text" name="postnom" id="postnom" autocomplete="last_name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                </div>
+              </div>
+      
+              <div class="sm:col-span-2">
+                <label for="prenom" class="block text-lg font-medium leading-6 text-white">Prénom</label>
+                <div class="mt-2">
+                  <input type="text" name="prenom" id="prenom" autocomplete="first_name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                </div>
+              </div>
+              
+      
+              <div class="sm:col-span-4">
+                <label for="email" class="block text-lg font-medium leading-6 text-white">Addresse email</label>
+                <div class="mt-2">
+                  <input id="email" name="email" type="email" autocomplete="email" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                </div>
+              </div>
+              <div class="relative sm:col-span-full  z-0 w-full mb-6 group">
+                <label for="profession" class="block text-lg font-medium leading-6 text-white">Profession</label>
+                <select name="profession" id="profession" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-white rounded-md  appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer">
+                    <option selected>Choisissez votre Profession</option>
+                    <option value="etudiant">Étudiant</option>
+                    <option value="section">Agent Section</option>
+                    <option value="bibliotheque">Bibliothécaire</option>
+                </select>
+            </div>
+      
+              
+            <div id="etudiant-fields" class="col-span-full" style="display: none;">
+                <label for="promotion" class="block text-lg font-medium leading-6 text-white">Promotion</label>
+                <input type="text" name="promotion" id="promotion"  class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+        
+                <label for="section" class="block text-lg font-medium leading-6 text-white">Section</label>
+                <input type="text" name="section" id="section section-fields" autocomplete="section" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            </div>
+        
+            <div id="section-bibliotheque-fields" class="col-span-full" style="display: none;">
+                <label for="matricule" class="block text-lg font-medium leading-6 text-white">Matricule</label>
+                <input type="text" name="matricule" id="matricule" autocomplete="matricule" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            </div>
+             
+
+              
+              
+            </div>
+          </div>
+      
+        </div>
+      
+        <div class="mt-6 flex items-center  justify-center gap-x-6">
+          <button type="submit" class="rounded-md bg-green-700 px-5 py-4 text-lg font-semibold text-white shadow-sm hover:bg-green-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">S'inscrire</button>
+        </div>
+      </form>
+ <!--   
 <form action="{{ route('inscription.store') }}" method="POST">
     @csrf
 
@@ -65,7 +168,7 @@
 
     <button type="submit">Inscription</button>
 </form>
-
+-->
 <script>
     const professionSelect = document.getElementById('profession');
     const etudiantFields = document.getElementById('etudiant-fields');
