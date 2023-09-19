@@ -1,11 +1,7 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProfController;
-use App\Http\Controllers\DemandeController;
-use App\Http\Controllers\InscripController;
-use App\Http\Controllers\EtudiantController;
-use App\Http\Controllers\UtilisateurController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,11 +15,17 @@ use App\Http\Controllers\UtilisateurController;
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('welcome');
 });
-Route::resource('inscription', InscripController::class);
-Route::resource('utilisateur', UtilisateurController::class);
-Route::resource('demande', DemandeController::class);
-Route::resource('prof', ProfController::class);
-Route::resource('etudiants', EtudiantController::class);
 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';
