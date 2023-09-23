@@ -32,7 +32,8 @@
             <i class="fas fa-user-alt mr-3"></i>
             Attribution Directeur
         </a>
-        <a href="{{ route('prof.store') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+        {{-- {{{{ route('prof.store') }}}} --}}
+        <a href="" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
             <i class="fas fa-user-alt mr-3"></i>
            Ajouter un professeur
         </a>
@@ -80,7 +81,8 @@
                     <i class="fas fa-user-alt mr-3"></i>
                     Attribution Directeur
                 </a>
-                <a href="{{ route('prof.store')}}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+                {{-- {{ route('prof.store')}} --}}
+                <a href="" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                     <i class="fas fa-user-alt mr-3"></i>
                    Ajouter un professeur
                 </a>
@@ -110,7 +112,8 @@
                             <i class="fas fa-list mr-3"></i> Ajouter un enseignant
                         </p>
                         <div class="leading-loose">
-                            <form class="p-10 bg-white rounded shadow-xl" action="{{ route('etudiants.store') }}" method="post">
+                            {{-- {{ route('etudiants.store') }} --}}
+                            <form class="p-10 bg-white rounded shadow-xl" action="" method="post">
                                 @csrf
                                 <p class="text-lg text-gray-800 font-medium pb-4">Formulaire Etudiants</p>
                                 <div class="">

@@ -3,10 +3,13 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Prof;
+use App\Models\Role;
+use App\Models\Etudiant;
+use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
@@ -21,6 +24,7 @@ class User extends Authenticatable
         'email',
         'name',
         'password',
+        'fk_role'
     ];
 
     /**
@@ -41,4 +45,16 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+    public function etudiant()
+    {
+        return $this->hasMany(Etudiant::class,"fk_user");
+    }
+    public function prof()
+    {
+        return $this->hasMany(Prof::class,"fk_user");
+    }
+    public function role()
+    {
+        return $this->belongsTo(Role::class, 'fk_role','id');
+    }
 }

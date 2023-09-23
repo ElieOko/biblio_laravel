@@ -13,14 +13,13 @@ return new class extends Migration
     {
         Schema::create('demandes', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('EtudiantFId');
-            $table->foreign('EtudiantFId')->references('id')->on('etudiants')->onDelete('cascade');
+            $table->unsignedBigInteger('fk_etudiant');
+            $table->foreign('fk_etudiant')->references('id')->on('etudiants')->onDelete('cascade');
             $table->string('annee');
             $table->boolean("state")->default(false);
             $table->boolean("isActive")->default(false);
         });
     }
-
     /**
      * Reverse the migrations.
      */

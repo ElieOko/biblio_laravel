@@ -10,31 +10,24 @@ use Illuminate\Http\Request;
 class DemandeController extends Controller
 {
     //
-    public function store(Request $request)
+    public function demandePublication(Request $request)
     {
         # code...
         $year = date("Y");
-        $student = (int)$request->EtudiantFId ;
+        $student = (int)$request->student_id ;
         if($student){
-          if(count (Etudiant::all())!= 0){
-            $verify = Demande::where("EtudiantFId",$student)->get();
-            if(count($verify) == 0){
+            $verify = Demande::where("fk_etudiant",$student)->get();
+            if(count($verify) > 0){
                  die("Vous aviez envoyé récemment une demande de publication");
             }  
             else{
              $demande_student = Demande::create([
                  "annee"=>$year,
                  "state"=>true,
-                 "EtudiantFId"=>$student,
+                 "fk_etudiant"=>$student,
                 ]);
+                dd("Demande Envoyer");
             }
-          } 
-         else{
-            die("Aucun Student");
-         }  
-        }
-        else{
-            die("Pour acceder acceder à cette fonctionnalité vous dévriez être connecté");
         }
         return view('index');
     }
@@ -46,5 +39,20 @@ class DemandeController extends Controller
         $demande->isActive = true;
         $demande->update();
     
+    }
+    public function main_page()
+    {
+        # code...
+        return view('sectionAdmin.demande.index');
+    }
+    public function demandeBySection($section_id)
+    {
+        # code...
+        return view('sectionAdmin.demande.section.index');
+    }
+    public function demandeBySectionAndPromotion($section_id,$promotion_id)
+    {
+        # code...
+        return view('sectionAdmin.demande.section.promotion.demande');
     }
 }

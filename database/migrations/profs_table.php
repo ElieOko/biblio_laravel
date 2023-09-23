@@ -11,15 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('inscrips', function (Blueprint $table) {
+        Schema::create('profs', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('fk_user');
+            $table->foreign('fk_user')->references('id')->on('users')->onDelete('cascade');
+            $table->unsignedBigInteger('fk_grade');
+            $table->foreign('fk_grade')->references('id')->on('grades')->onDelete('cascade');
+            $table->string('matricule')->unique();
+            $table->string('genre');
             $table->string('nom');
             $table->string('postnom');
             $table->string('prenom');
-            $table->string('section')->nullable();
-            $table->string('promotion')->nullable();
-            $table->string('matricule')->nullable();
-            $table->string('Profession')->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('inscrips');
+        Schema::dropIfExists('profs');
     }
 };

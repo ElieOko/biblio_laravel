@@ -11,14 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('profs', function (Blueprint $table) {
+        Schema::create('promotions', function (Blueprint $table) {
             $table->id();
-            $table->string('matricule');
-            $table->string('grade');
+            $table->unsignedBigInteger('fk_section');
+            $table->foreign('fk_section')->references('id')->on('sections')->onDelete('cascade');
             $table->string('nom');
-            $table->string('postnom');
-            $table->string('prenom');
-            $table->timestamps();
+            $table->string('abreviation');
+            $table->boolean('isTerminal')->default(false);
         });
     }
 
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('profs');
+        Schema::dropIfExists('promotions');
     }
 };

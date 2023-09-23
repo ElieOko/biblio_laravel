@@ -41,15 +41,15 @@
                 <i class="fas fa-user-alt mr-3"></i>
                 Attribution Directeur
             </a>
-            <a href="{{ route('prof.create') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+            <a href="" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-user-alt mr-3"></i>
                Ajouter un professeur
             </a>
-            <a href="{{ route('etudiants.create') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+            <a href="" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-user-alt mr-3"></i>
                Ajouter etudiants
             </a>
-            <a href="{{ route('etudiants.index') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+            <a href="" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-user-alt mr-3"></i>
                Liste Etudiants
             </a>
@@ -99,7 +99,7 @@
                     <i class="fas fa-user-alt mr-3"></i>
                     Attribution Directeur
                 </a>
-                <a href="{{ route('prof.index') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+                <a href="" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                     <i class="fas fa-user-alt mr-3"></i>
                    Ajouter un professeur
                 </a>
@@ -216,7 +216,7 @@
                                 </tr>
                             </thead>
                             <tbody class="text-gray-700">
-                                @forelse ($profs as $item)
+                                {{-- @forelse ($profs as $item)
                                 <tr>
                                     <td class="w-1/3 text-left py-3 px-4">{{ $item->matricule }}</td>
                                     <td class="w-1/3 text-left py-3 px-4">{{ $item->grade }}</td>
@@ -230,7 +230,7 @@
                                         Aucun enregistrement
                                     </td>
                               </tr>
-                            @endforelse
+                            @endforelse --}}
                             </tbody>
                         </table>
                     </div>
