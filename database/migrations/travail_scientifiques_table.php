@@ -11,16 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('sujets', function (Blueprint $table) {
+        Schema::create('travail_scientifiques', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('fk_etudiant');
-            $table->foreign('fk_etudiant')->references('id')->on('etudiants')->onDelete('cascade');
-            $table->unsignedBigInteger('fk_prof');
-            $table->foreign('fk_prof')->references('id')->on('profs')->onDelete('cascade');
+            $table->integer('fk_etudiant');
+            $table->string('prof');
             $table->string('nom');
             $table->string('description');
             $table->string('fichier'); 
-            $table->boolean('autorisation')->nullable()->default(false);    
+            $table->boolean('autorisation')->nullable()->default(true); 
+            $table->string("annee");  
         });
     }
 
@@ -29,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('sujets');
+        Schema::dropIfExists('travail_scientifiques');
     }
 };

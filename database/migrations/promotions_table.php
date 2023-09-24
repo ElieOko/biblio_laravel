@@ -13,8 +13,7 @@ return new class extends Migration
     {
         Schema::create('promotions', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('fk_section');
-            $table->foreign('fk_section')->references('id')->on('sections')->onDelete('cascade');
+            $table->integer('fk_section');
             $table->string('nom');
             $table->string('abreviation');
             $table->boolean('isTerminal')->default(false);

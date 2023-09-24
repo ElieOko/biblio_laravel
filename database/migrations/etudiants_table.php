@@ -13,12 +13,9 @@ return new class extends Migration
     {
         Schema::create('etudiants', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('fk_user');
-            $table->foreign('fk_user')->references('id')->on('users')->onDelete('cascade');
-            $table->unsignedBigInteger('fk_promotion');
-            $table->foreign('fk_promotion')->references('id')->on('promotions')->onDelete('cascade');
-            $table->unsignedBigInteger('fk_section');
-            $table->foreign('fk_section')->references('id')->on('sections')->onDelete('cascade');
+            $table->integer('fk_user');
+            $table->integer('fk_promotion');
+            $table->integer('fk_section');
             $table->string('matricule')->unique();
             $table->string('genre');
             $table->string('nom');

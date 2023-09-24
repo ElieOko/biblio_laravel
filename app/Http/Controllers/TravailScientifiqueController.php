@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PromotionProf;
+use App\Models\TravailScientifique;
 use Illuminate\Http\Request;
 
-class PromotionProfController extends Controller
+class TravailScientifiqueController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,6 +21,7 @@ class PromotionProfController extends Controller
     public function create()
     {
         //
+        return view("section.create");
     }
 
     /**
@@ -29,12 +30,13 @@ class PromotionProfController extends Controller
     public function store(Request $request)
     {
         //
+        
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(PromotionProf $promotionProf)
+    public function show(TravailScientifique $travailScientifique)
     {
         //
     }
@@ -42,7 +44,7 @@ class PromotionProfController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(PromotionProf $promotionProf)
+    public function edit(TravailScientifique $travailScientifique)
     {
         //
     }
@@ -50,7 +52,7 @@ class PromotionProfController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, PromotionProf $promotionProf)
+    public function update(Request $request, TravailScientifique $travailScientifique)
     {
         //
     }
@@ -58,7 +60,7 @@ class PromotionProfController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(PromotionProf $promotionProf)
+    public function destroy(TravailScientifique $travailScientifique)
     {
         //
     }

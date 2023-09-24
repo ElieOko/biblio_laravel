@@ -12,7 +12,7 @@ class Promotion extends Model
 {
     use HasFactory;
     public $timestamps = false;
-    protected $fillable = ['nom','isTerminal','fk_section'];
+    protected $fillable = ['nom','isTerminal','fk_section','abreviation'];
     public function section()
     {
         return $this->belongsTo(Section::class, 'fk_section','id');

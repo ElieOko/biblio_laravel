@@ -15,7 +15,7 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Accueil') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    <x-nav-link :href="route('livre')" :active="request()->routeIs('livre')">
                         {{ __('Livre') }}
                     </x-nav-link>
                 </div>
@@ -23,23 +23,20 @@
 
             <!-- Settings Dropdown -->
             {{-- {{{{  }}}} --}}
+            @if(isset(Auth::user()->id))
             <div class="hidden sm:flex sm:items-center sm:ml-6">
-                <form action="{{route('demande.publication')}}" method="POST">
-                @csrf
+                {{-- <form action="{{route('demande.publication')}}" method="POST">
+                @csrf --}}
+              
                     <input type="hidden" name="student_id" value="{{Auth::user()->id}}">
-                    @if (Auth::user()->role->id  == 1 )
-                        {{-- @if(Auth::user()->etudiant->demande->state == true)
-                            <span class="shadow bg-blue-500 hover:bg-blue-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">
-                            {{"En attente de la demande"}}  
-                            </span>     
-                        @else --}}
-                            <button class="shadow bg-blue-500 hover:bg-blue-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">
-                                {{"Demande de publication"}}  
-                            </button>
-                        {{-- @endif --}}
+                    @if ( Auth::user()->role  == 1 )
+                            <a href="/student/publication" class="shadow bg-blue-500 hover:bg-blue-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">
+                                {{"Publication"}}  
+                            </a>
                     @endif
-                </form>
+                {{-- </form> --}}
                 <x-dropdown align="right" width="48">
+
                     <x-slot name="trigger">
                         <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">
                             <div>{{ Auth::user()->name }}</div>
@@ -70,6 +67,7 @@
                     </x-slot>
                 </x-dropdown>
             </div>
+            @endif  
 
             <!-- Hamburger -->
             <div class="-mr-2 flex items-center sm:hidden">
@@ -92,6 +90,7 @@
         </div>
 
         <!-- Responsive Settings Options -->
+        @if(isset(Auth::user()->id))
         <div class="pt-4 pb-1 border-t border-gray-200 dark:border-gray-600">
             <div class="px-4">
                 <div class="font-medium text-base text-gray-800 dark:text-gray-200">{{ Auth::user()->name }}</div>
@@ -115,5 +114,6 @@
                 </form>
             </div>
         </div>
+        @endif
     </div>
 </nav>

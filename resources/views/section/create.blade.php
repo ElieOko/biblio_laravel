@@ -3,7 +3,7 @@
     <form method="POST" class="mt-6" action="{{ route('section.store') }}">
         @csrf
         <div>
-            <x-input-label for="nom" :value="__('Nom de la promotion')" />
+            <x-input-label for="nom" :value="__('Nom de la Section')" />
             <x-text-input id="nom" class="block mt-1 w-full" type="text" name="nom" :value="old('nom')" required autofocus autocomplete="nom" />
             <x-input-error :messages="$errors->get('nom')" class="mt-2" />
         </div>

@@ -12,16 +12,10 @@ class SectionController extends Controller
      */
     public function page()
     {
-        //
-        //$sections = Section::all();
-        //return view("section.all",compact("sections"));
         return view("BibliothequeAdmin.index");
     }
     public function index()
     {
-        //
-        //$sections = Section::all();
-        //return view("section.all",compact("sections"));
         return view("sectionAdmin.index");
     }
 
@@ -31,7 +25,6 @@ class SectionController extends Controller
     public function create()
     {
         //
-      
         return view("section.create");
     }
     /**
@@ -44,16 +37,18 @@ class SectionController extends Controller
             'nom' => $request->nom,
         ]); 
         $msg ="Enregistrement réussi avec succès";
-        $sections = Section::all();
-        return redirect('/section/all')->with('sections', $sections);
+        return redirect('/dashboard');
         //return  view("section.all",compact('msg','sections'));
     }
+
     /**
      * Display the specified resource.
      */
     public function show(Section $section)
     {
-        //
+        //       //
+        //$sections = Section::all();
+        //return view("section.all",compact("sections"));
     }
 
     /**

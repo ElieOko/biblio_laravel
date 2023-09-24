@@ -1,6 +1,8 @@
 <x-guest-layout>
     {{"Formulaire de création Étudiant"}}
+    
     <form method="POST" class="mt-6" action="{{ route('student.store') }}">
+       
         @csrf
         <!-- Name -->
         <div>
@@ -31,7 +33,7 @@
         <x-input-label for="promotion" :value="__('Promotion')" />
         <select name="fk_promotion" class="border-gray-300 block mt-2 w-full dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm">
             @foreach($promotions as $item) 
-                <option value="{{$item->id}}">{{$item->nom}}</option>
+                <option value="{{$item->id}}">{{$item->abreviation}}</option>
             @endforeach
         </select>
         <x-input-label for="section" :value="__('Section')" />

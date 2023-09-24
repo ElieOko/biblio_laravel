@@ -3,14 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Sujet;
 use App\Models\Section;
 use App\Models\Etudiant;
 use App\Models\Promotion;
 use Illuminate\Http\Request;
+use App\Models\TravailScientifique;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Auth\Events\Registered;
 use App\Providers\RouteServiceProvider;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Password;
 ;
 
@@ -21,15 +24,13 @@ class EtudiantController extends Controller
         return view('student.all',compact('etudiants'));
     }
     public function create(){
-        //view('sectionAdmin.AjoutEtudiant');
         $sections = Section::all();
         $promotions = Promotion::all();
         return view('student.create',compact('sections', 'promotions'));
     }
-
     public function store(Request $request)
-    {   
-        
+    {    
+       
         $request->validate([
             'matricule' => 'required',
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
@@ -38,31 +39,25 @@ class EtudiantController extends Controller
             'postnom' => 'required',
             'prenom' => 'required|string',
             'genre' => 'required',
+            'role' => ''
         ]);
-        $username = $request->nom . $request->postnom;
-        // dd("bug");
+        $username = $request->nom ." ". $request->postnom;
         $user = User::create([
             'name' => $username,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'fk_role'=> 1
+            'role'=> 1
         ]);
         $id = $user->id;
             # code...
             $etudiants = Etudiant::create([
-                'matricule' =>$request->matricule,
-                'nom' => $request->nom,
-                'postnom' => $request->postnom,
-                'prenom' => $request->prenom,
-                'genre' => $request->genre,
+                'matricule' =>$request->matricule,'nom' => $request->nom,'postnom' => $request->postnom,'prenom' => $request->prenom,'genre' => $request->genre,
                 'fk_section' => $request->fk_section,
                 'fk_promotion' => $request->fk_promotion,
                 'fk_user' => $id
             ]);
         event(new Registered($user));
-
         Auth::login($user);
-
         return redirect(RouteServiceProvider::HOME);
     }
 
@@ -78,6 +73,43 @@ class EtudiantController extends Controller
     public function publication(Request $request)
     {
         # code...
+            $request->validate([
+                'file' => 'required|file|mimes:pdf,doc,docx|max:10302048',
+            ]);
+            $original_name = $request->file('file')->getClientOriginalName();
+            if($request->hasFile('file')) {
+                $path = $request->file->storeAs("public/", $original_name  );
+                // $path = storage_path("app/public/$original_name");
+                // $link = public_path($original_name);
+                // Storage::link( $path,$link);
+                $student = (Etudiant::where("fk_user",Auth::user()->id)->get())[0]->id;
+                $travail = TravailScientifique::create([
+                    'annee' => date('Y'),
+                    'nom' => $request->sujet,
+                    'description' => $request->description,
+                    'fichier' => $original_name,
+                    'autorisation' => true,
+                    'fk_etudiant' => $student,
+                    'prof' => $request->nom,
+                ]);
+                // Sujet::create([
+                //     "fk_etudiant"=>,
+                //     "prof"=>$request->nom,
+                //     "nom"=>$request->sujet,
+                //     "description"=>$request->description,
+                //     "fichier"=>$original_name
+                // ]);
+                $all = TravailScientifique::all();
+                $allStudent = new Etudiant();
+                return redirect('/livre')->with("all",$all)->with("allStudent",$allStudent) ;
+            }
+        
+    }
+    public function livre()
+    {
+        $all = TravailScientifique::all();
+        $allStudent = new Etudiant();
+        return view('livre',compact('all', 'allStudent'));
     }
     public function publication_page()
     {

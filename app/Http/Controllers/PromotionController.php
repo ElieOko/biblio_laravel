@@ -38,12 +38,15 @@ class PromotionController extends Controller
         $promotion = Promotion::create([
             'nom' => $request->nom,
             'isTerminal'=>  $is_selected,
-            'fk_section'=>$request->section
+            'fk_section'=>$request->section,
+            'abreviation'=> $request->abreviation
         ]); 
         $msg = "Enregistrement réussi avec succès";
-        $promotions = Promotion::all();
-        return redirect('/promotion/all')->with('promotions', $promotions);
+       // $promotions = Promotion::all();
+        return redirect('/dashboard');
     }
+    
+
     /**
      * Display the specified resource.
      */

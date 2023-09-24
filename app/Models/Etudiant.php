@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Etudiant extends Model
 {
     use HasFactory;
-    protected $fillable = ['matricule','nom','postnom','prenom','genre','fk_section','fk_promotion','fk_user'];
+    protected $fillable = ['matricule','nom','postnom','prenom','genre','fk_section','fk_promotion','fk_user','role'];
     public $timestamps = false;
     public function promotion()
     {

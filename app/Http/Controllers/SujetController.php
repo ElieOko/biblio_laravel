@@ -9,15 +9,6 @@ use App\Http\Controllers\SujetController;
 class SujetController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-        //view("student.publication",compact("msg"));
-    }
-
-    /**
      * Show the form for creating a new resource.
      */
     public function create()

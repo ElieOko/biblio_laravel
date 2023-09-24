@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Role;
+use App\Models\Option;
+use App\Models\Section;
 use Illuminate\Http\Request;
 
-class RoleController extends Controller
+class OptionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,8 +14,6 @@ class RoleController extends Controller
     public function index()
     {
         //
-        $roles = Role::all();
-        return view("sectionAdmin.role.all",compact("roles"));
     }
 
     /**
@@ -23,7 +22,8 @@ class RoleController extends Controller
     public function create()
     {
         //
-        return view("sectionAdmin.role.create");
+        $sections = Section::all();
+        return view('option',compact('sections'));
     }
 
     /**
@@ -31,27 +31,26 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        $role = Role::create([
-            'nom' => $request->nom,
+        //
+        $section = Option::create([
+            'nomOption' => $request->nomOption,
+            'fk_section' => $request->fk_section
         ]); 
-        $roles = Role::all();
-        $msg ="Enregistrement réussi avec succès";
-        return redirect('/role/all')->with('roles',  $roles);
+        return redirect("/dashboard");
     }
 
     /**
      * Display the specified resource.
      */
-    public function attribution_page()
+    public function show(Option $option)
     {
         //
-        return view("sectionAdmin.role.attribution");
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Role $role)
+    public function edit(Option $option)
     {
         //
     }
@@ -59,7 +58,7 @@ class RoleController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Role $role)
+    public function update(Request $request, Option $option)
     {
         //
     }
@@ -67,7 +66,7 @@ class RoleController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Role $role)
+    public function destroy(Option $option)
     {
         //
     }

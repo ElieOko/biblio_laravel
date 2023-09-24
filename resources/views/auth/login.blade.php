@@ -1,6 +1,11 @@
 <x-guest-layout>
     <!-- Session Status -->
+    <div class="flex justify-center w-18 h-16">
+        <img class="inline" src="images/isc-r.png" alt="alternative" />
+   
+    </div>
     <x-auth-session-status class="mb-4" :status="session('status')" />
+    
 
     <form method="POST" action="{{ route('login') }}">
         @csrf

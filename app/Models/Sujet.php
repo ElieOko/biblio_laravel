@@ -11,7 +11,7 @@ class Sujet extends Model
 {
     use HasFactory;
     public $timestamps = false;
-    protected $fillable = ['nom','description','fichier','autorisation','fk_etudiant','fk_prof'];
+    protected $fillable = ['nom','description','fichier','autorisation','fk_etudiant','prof'];
     public function prof()
     {
         return $this->belongsTo(Prof::class, 'fk_prof','id');
