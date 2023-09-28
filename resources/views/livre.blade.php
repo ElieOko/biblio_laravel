@@ -13,10 +13,15 @@
 		<div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg">
 			<div href="#" class="flex flex-wrap no-underline hover:no-underline pt-4">
 				<img src="images/PDF_file_icon.svg" class="h-64 w-full rounded-t pb-6 ">
-			
-				<p class="w-full text-gray-600 text-xs md:text-sm px-6 uppercase">{{($allStudent->where("id",$livre->fk_etudiant)->get())[0]->nom}}</p>
+			@php
+				$student = ($allStudent->where("id",$livre->fk_etudiant)->get())[0];
+				$nom_complet = $student->nom ." ". $student->postnom." ".$student->prenom;
+			@endphp
+				<p class="w-full text-gray-600 text-xl md:text-xl px-6 uppercase">{{$nom_complet}}</p>
 				<div class="w-full font-bold text-xl text-gray-900 px-6">{{$livre->nom}}</div>
 				<div class="w-full font-bold text-xl text-gray-900 px-6">	<p>Directeur : {{$livre->prof}}</p></div>
+				<div class="w-full font-bold text-xl text-blue-900 px-6">	<p>Categorie : {{($categorie->where("id",$livre->fk_categorie)->get())[0]->nom}}</p></div>
+
 			
 				<br>
 				<p class="text-gray-800 font-serif text-base px-6 mb-5">

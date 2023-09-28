@@ -102,10 +102,12 @@ class EtudiantController extends Controller
     {
         $all = TravailScientifique::all();
         $allStudent = new Etudiant();
-        return view('livre',compact('all', 'allStudent'));
+        $categorie = new Categorie();
+        return view('livre',compact('all', 'allStudent','categorie'));
     }
     public function publication_page()
     {
-        return view('student.publication');
+        $all_categorie =  Categorie::all();
+        return view('student.publication')->with("all_categorie",$all_categorie);
     }
 }
