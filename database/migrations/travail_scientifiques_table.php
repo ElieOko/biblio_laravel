@@ -19,7 +19,8 @@ return new class extends Migration
             $table->string('description');
             $table->string('fichier'); 
             $table->boolean('autorisation')->nullable()->default(true); 
-            $table->string("annee");  
+            $table->string("annee");
+            $table->integer("fk_categorie");  
         });
     }
 

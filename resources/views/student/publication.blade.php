@@ -4,6 +4,12 @@
         <form method="POST" class="mt-6" enctype="multipart/form-data" action="{{ route('student.publication') }}">
             @csrf
             <!-- Name -->
+            <x-input-label for="categorie" :value="__('Categorie')" />
+            <select name="categorie" class="border-gray-300 block mt-2 w-full dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm">
+                @foreach($all_categorie as $item) 
+                <option value="{{$item->id}}">{{$item->nom}}</option>
+                @endforeach
+            </select>
             <div>
                 <x-input-label for="sujet" :value="__('Sujet')" />
                 <textarea name="sujet" required id="" cols="2" rows="2" class="border-gray-300 block mt-2 w-full dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm"></textarea>

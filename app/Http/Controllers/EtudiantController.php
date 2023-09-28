@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Sujet;
 use App\Models\Section;
 use App\Models\Etudiant;
+use App\Models\Categorie;
 use App\Models\Promotion;
 use Illuminate\Http\Request;
 use App\Models\TravailScientifique;
@@ -30,7 +31,6 @@ class EtudiantController extends Controller
     }
     public function store(Request $request)
     {    
-       
         $request->validate([
             'matricule' => 'required',
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
@@ -79,9 +79,6 @@ class EtudiantController extends Controller
             $original_name = $request->file('file')->getClientOriginalName();
             if($request->hasFile('file')) {
                 $path = $request->file->storeAs("public/", $original_name  );
-                // $path = storage_path("app/public/$original_name");
-                // $link = public_path($original_name);
-                // Storage::link( $path,$link);
                 $student = (Etudiant::where("fk_user",Auth::user()->id)->get())[0]->id;
                 $travail = TravailScientifique::create([
                     'annee' => date('Y'),
@@ -91,17 +88,13 @@ class EtudiantController extends Controller
                     'autorisation' => true,
                     'fk_etudiant' => $student,
                     'prof' => $request->nom,
+                    'fk_categorie' => $request->categorie
                 ]);
-                // Sujet::create([
-                //     "fk_etudiant"=>,
-                //     "prof"=>$request->nom,
-                //     "nom"=>$request->sujet,
-                //     "description"=>$request->description,
-                //     "fichier"=>$original_name
-                // ]);
+
                 $all = TravailScientifique::all();
                 $allStudent = new Etudiant();
-                return redirect('/livre')->with("all",$all)->with("allStudent",$allStudent) ;
+                $all_categorie =  Categorie::all();
+                return redirect('/livre')->with("all",$all)->with("allStudent",$allStudent)->with("allCategorie",$all_categorie) ;
             }
         
     }
